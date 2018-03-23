@@ -2,7 +2,7 @@
    <footer class="footer">
    	<div class="container">
  		<p>
- 			Coypright &copy; 2016 Rishabh Jain &amp; Meenal Dave 
+ 			&copy; 2018 Qingsibaixue &amp; Menglihualiang  
  		</p>
  	</div>
    </footer>

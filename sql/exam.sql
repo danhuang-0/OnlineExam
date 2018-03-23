@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `exam`
+-- Database: `phpexam`
 --
 
 -- --------------------------------------------------------
@@ -69,6 +69,32 @@ CREATE TABLE `type` (
   `id` int(11) NOT NULL,
   `user_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `score`
+--
+
+CREATE TABLE `score`(
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `time` DATETIME NOT NULL,
+  `score` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `last_login_time`
+--
+
+CREATE TABLE `last_login_time`(
+  `user_id` int(11) PRIMARY KEY NOT NULL,
+  `last_login_time` DATETIME NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Dumping data for table `type`

@@ -10,11 +10,11 @@
     <nav class="navbar navbar-inverse">
  	 	<div class="container-fluid">
  	 		<div class="navbar-header">
- 	 			<a class="navbar-brand" href="#">Online Exam</a>
+ 	 			<a class="navbar-brand" href="index.php">Online Exam</a>
  	 		</div>
  	 		<div>
  	 		    <ul class="nav navbar-nav">
-					<?php  if(isset($_SESSION['user']) && $_SESSION['user_type'] == 2 ) :?>
+					<?php  if(isset($_SESSION['user'])  ) :?>
 					<li></li>
 					<?php else : ?>
  	 		    	<li><a href="index.php">Home</a></li>

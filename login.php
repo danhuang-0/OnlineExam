@@ -6,7 +6,7 @@ $db = new Database();
 if(isset($_POST['submit']))
 {
   $username = $_POST['username'];
-  $password = $_POST['password'];
+  $password = md5($_POST['password']);
   $query = "SELECT * FROM user WHERE email ='$username' AND password ='$password' AND user_type = 1";
   $result = $db->select($query);
   if($result){
@@ -16,6 +16,21 @@ if(isset($_POST['submit']))
       $_SESSION['user'] = $row['email'];
       $_SESSION['id'] = $row['id'];
       $_SESSION['user_type'] = $row['user_type'];
+	  $user_id = $_SESSION['id'];
+	  
+	  $date = date("Y-m-d H:i:s");
+	  $query = "SELECT user_id FROM last_login_time WHERE user_id='$user_id'";
+	  $result = $db->select($query);
+	  if( $result )
+	  {
+		  $query = "UPDATE last_login_time SET last_login_time='$date' WHERE user_id='$user_id'";
+		  $db->update($query);
+	  }
+	  else
+	  {
+		  $query = "INSERT INTO last_login_time VALUES('$user_id','$date')";
+		  $db->insert($query);
+	  }
       header('Location: index.php');
     }
   }

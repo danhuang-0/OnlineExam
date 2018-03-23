@@ -6,7 +6,7 @@
   $db = new Database();
  if(isset($_POST['submit'])){
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
      //validation check
      if($username == '' || $password == ''){
         echo "Please Fill the details";
@@ -22,7 +22,7 @@
                  $_SESSION['user'] = $row['email'];
                  $_SESSION['id'] = $row['id'];
                  $_SESSION['user_type'] = $row['user_type'];
-                 header('Location: add.php');
+                 header('Location: adminchoice.php');
              }
          }
          else{

@@ -14,7 +14,11 @@
 ?>
 <div class="jumbotron">
 	<h3 class="text-center"><?php echo "Question ".$number." of ".$count; ?></h3>
-	<h4 class="text-center">What Does PHP Stands for ?</h4>
+	<h4 class="text-center"><?php
+							$row = $result->fetch_assoc();
+							echo $row['text'];
+							?>
+	<!--<h4 class="text-center">What Does PHP Stands for ?</h4> -->
 </div>
 <form class="form-horizontal" action="process.php" method="post">
 	<ul class="question">
